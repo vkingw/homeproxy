@@ -46,6 +46,8 @@ start_service() {
 	if [ "$outbound_node" != "nil" ]; then
 		# Generate/Validate client config
 		ucode -S "$HP_DIR/scripts/generate_client.uc" 2>>"$LOG_PATH"
+                cp /var/run/homeproxy/sing-box-c.json /var/run/homeproxy/sing-box-c.json_backup
+                cp /etc/homeproxy/sing-box-c.json /var/run/homeproxy/sing-box-c.json
 
 		if [ ! -e "$RUN_DIR/sing-box-c.json" ]; then
 			log "Error: failed to generate client configuration."
